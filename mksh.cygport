@@ -1,0 +1,36 @@
+NAME="mksh"
+VERSION=43
+RELEASE=1
+CATEGORY="Shells"
+SUMMARY="MirBSD Korn Shell"
+DESCRIPTION="MirBSD Korn Shell, an actively developed free implementation of the
+Korn Shell programming language and a successor to the Public Domain Korn Shell."
+HOMEPAGE="https://www.mirbsd.org/mksh.htm"
+SRC_URI="https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R${VERSION}.tgz"
+SRC_DIR="mksh"
+
+src_compile() {
+  lndirs
+  cd ${B}
+  CC=${CC} \
+  CPPFLAGS="-DMKSH_GCC55009" \
+  sh ./Build.sh -r
+}
+
+src_test() {
+  cd ${B}
+  ./mksh test.sh
+}
+
+src_install() {
+  cd ${B}
+  dobin mksh.exe
+  dosym mksh.exe /usr/bin/ksh
+  doman mksh.1
+
+  docinto examples
+  dodoc dot.mkshrc
+
+  insinto /etc/skel
+  newins dot.mkshrc .mkshrc
+}
