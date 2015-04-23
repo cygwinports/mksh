@@ -1,5 +1,5 @@
 NAME="mksh"
-VERSION=44
+VERSION=50f
 RELEASE=1
 CATEGORY="Shells"
 SUMMARY="MirBSD Korn Shell"
@@ -13,7 +13,6 @@ src_compile() {
   lndirs
   cd ${B}
   CC=${CC} \
-  CPPFLAGS="-DMKSH_GCC55009" \
   sh ./Build.sh -r
 }
 
