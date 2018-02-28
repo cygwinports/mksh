@@ -1,5 +1,5 @@
 NAME="mksh"
-VERSION=54
+VERSION=56c
 RELEASE=1
 CATEGORY="Shells"
 SUMMARY="MirBSD Korn Shell"
