@@ -1,5 +1,5 @@
 NAME="mksh"
-VERSION=50f
+VERSION=54
 RELEASE=1
 CATEGORY="Shells"
 SUMMARY="MirBSD Korn Shell"
@@ -32,4 +32,6 @@ src_install() {
 
   insinto /etc/skel
   newins dot.mkshrc .mkshrc
+
+  update_etc_shells /usr/bin/mksh /usr/bin/ksh
 }
